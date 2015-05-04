@@ -10,15 +10,17 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.archies.model.common.entities.AuditableEntity;
 import com.archies.model.user.User;
 
 import lombok.Getter;
 import lombok.Setter;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="group_members")
 @Getter @Setter
-public class GroupMember {
+public class GroupMember extends AuditableEntity {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

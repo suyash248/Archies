@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.archies.model.common.entities.AuditableEntity;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,7 +18,7 @@ import lombok.Setter;
 @Entity
 @Table(name="users")
 @Getter @Setter
-public class User implements Serializable {
+public class User extends AuditableEntity implements Serializable {
 	
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="USER_ID")

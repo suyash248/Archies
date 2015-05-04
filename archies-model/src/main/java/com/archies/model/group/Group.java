@@ -7,13 +7,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.archies.model.common.entities.AuditableEntity;
+
 import lombok.Getter;
 import lombok.Setter;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name="groups")
 @Getter @Setter
-public class Group {
+public class Group extends AuditableEntity {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)

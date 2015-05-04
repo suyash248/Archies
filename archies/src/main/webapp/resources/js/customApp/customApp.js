@@ -3,7 +3,6 @@ $(function(){
 });
 
 function initAll(){
-	//initializeDataTable();
 	initializeDatepicker();
 }
 
@@ -14,19 +13,6 @@ function getBasePath(){
 function initializeDatepicker(){
 	$('.datepicker').datepicker({
 		//dateFormat: 'yy-mm-dd'
-	});
-}
-
-function initializeDataTable(){
-	$('.datatable').dataTable({
-		"pagingType": "full_numbers",
-		"jQueryUI": true,
-		 "paging":   true,
-	      "ordering": true,
-	      "info":     true,
-	      "scrollY": 180,
-	      "scrollCollapse": true,
-	      "bPaginate": true
 	});
 }
 

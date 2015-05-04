@@ -7,7 +7,11 @@
 		'/resources/css/bootstrap/bootstrap-theme.min.css',
 		'/resources/css/bootstrapValidator/bootstrapValidator.min.css',
 		'/resources/css/datepicker/datepicker.css',
-		'/resources/css/fontawesome/css/font-awesome.min.css'
+		'/resources/css/fontawesome/css/font-awesome.min.css',
+		'/resources/css/customApp/nav.css',
+		'/resources/css/customApp/sidebar.css',
+		'/resources/css/customApp/archies.css',
+		'/resources/css/customApp/bubble.css'
 	}" >
 </s:set>
 <s:iterator var="cssFile" value="%{#cssList}" >

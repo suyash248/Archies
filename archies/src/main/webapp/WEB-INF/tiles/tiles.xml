@@ -5,17 +5,33 @@
    "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
 
 <tiles-definitions>
+	
+	<definition name="archies.root.def" template="/WEB-INF/bodyContent/layoutDefinations/baseLayout.jsp">
+		<put-attribute name="title" value="Archies" />
+		<!-- <put-attribute name="header" value="Header" /> -->
+		<put-attribute name="leftMenuContent" value="" />
+		<put-attribute name="bodyContent" value="" />
+	</definition>
+
+	<definition name="home.def" extends="archies.root.def">
+		<put-attribute name="title" value="Home-Archies" />
+		<put-attribute name="leftMenuContent" value="/WEB-INF/bodyContent/layoutDefinations/leftMenuContent.jsp" />
+		<put-attribute name="bodyContent" value="/WEB-INF/bodyContent/general/search/searchResults.jsp" />
+	</definition>
+
+
+
 
    <definition name="baseLayout" template="/WEB-INF/jsp/baseLayout.jsp">
       <put-attribute name="title" value="Struts2+Spring Security+Tiles"/>
       <put-attribute name="header" value="/WEB-INF/jsp/header.jsp"/>
-      <put-attribute name="footer"   value="/WEB-INF/jsp/footer.jsp"/>
+      <put-attribute name="footer" value="/WEB-INF/jsp/footer.jsp"/>
    </definition>
 
-   <definition name="home.def" extends="baseLayout">
+   <!-- <definition name="home.def" extends="baseLayout">
       <put-attribute name="title" value="Home"/>
       <put-attribute name="body" value="/WEB-INF/jsp/home.jsp"/>      
-   </definition>
+   </definition> -->
 
    <definition name="admin.def" extends="baseLayout">
       <put-attribute name="title"  value="Home-admin"/>

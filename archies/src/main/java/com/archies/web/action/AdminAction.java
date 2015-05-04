@@ -10,7 +10,7 @@ import com.opensymphony.xwork2.ActionSupport;
 @Component
 public class AdminAction extends ActionSupport {
 	public String execute(){
-		
+
 		return SUCCESS;
 	}
 	

@@ -11,7 +11,7 @@
 			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
     	<global-results>
-			<result name="login">/WEB-INF/bodyContent/general/login.jsp</result>
+			<result name="login">/WEB-INF/bodyContent/general/visitor.jsp</result>
 			<result name="home" type="tiles">home.def</result>
 		</global-results>
         <action name="admin/*" method="{1}" class="adminAction">

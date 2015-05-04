@@ -48,7 +48,7 @@
 		<security:intercept-url pattern="/**" access="isAuthenticated()" />
 		<security:access-denied-handler error-page="/WEB-INF/jsp/accessDenied.jsp" />
 		
-		<security:form-login login-page="/login" 
+		<security:form-login login-page="/login" authentication-success-handler-ref="loginSuccessHandler"
 			default-target-url="/home" authentication-failure-url="/login?error" 
 		    username-parameter="username" password-parameter="password" />
 	    

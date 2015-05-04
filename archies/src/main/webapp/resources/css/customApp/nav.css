@@ -1,0 +1,21 @@
+.navbar {
+	background-color:#f84242;
+	background: linear-gradient(top,  #FF7D19,  #EB9E47);
+	background: -ms-linear-gradient(top,  #FF7D19,  #EB9E47);
+	background: -webkit-gradient(linear, left top, left bottom, from(#FF7D19), to(#EB9E47));
+	background: -moz-linear-gradient(top,  #FF7D19,  #EB9E47);
+}
+
+.navbar a {
+	font-weight: bold;
+  	font-style: normal;
+  	color: #FAF8F8;
+  	text-decoration: none;
+}
+
+.navbar .active a, .navbar li:hover > a {
+  background: linear-gradient(top,  #EB671A,  #A1420B);
+  background: -ms-linear-gradient(top,  #EB671A,  #A1420B);
+  background: -webkit-gradient(linear, left top, left bottom, from(#EB671A), to(#A1420B));
+  background: -moz-linear-gradient(top,  #EB671A,  #A1420B);
+}

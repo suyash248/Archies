@@ -63,5 +63,10 @@ public class AuthServiceImpl implements AuthService, UserDetailsService {
 			super(username, password, authorities);
 		}
 		
+		@Override
+		public String getUsername(){
+			return user.getUserName();
+		}
+		
 	}
 }
