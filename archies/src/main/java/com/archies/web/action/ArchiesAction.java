@@ -33,7 +33,7 @@ public abstract class ArchiesAction extends ActionSupport implements ServletRequ
 	protected HttpServletResponse response;
 	protected HttpServletRequest request;
 	protected Map session;
-	protected String  userName;
+	protected String userName;
 	
 	public String execute() throws Exception {
 		return SUCCESS;
@@ -65,8 +65,7 @@ public abstract class ArchiesAction extends ActionSupport implements ServletRequ
 	 * @param key
 	 * @param args
 	 */
-	public final void addActionError(String key, Object[] args) 
-    {
+	public final void addActionError(String key, Object[] args) {
 		this.addActionError(this.getText(key, Arrays.asList(args)));
     }
 	
@@ -75,8 +74,7 @@ public abstract class ArchiesAction extends ActionSupport implements ServletRequ
 	 * @param key
 	 * @param args
 	 */
-	public final void addActionError(String key,  List<Object> args) 
-    {
+	public final void addActionError(String key,  List<Object> args) {
 		this.addActionError(this.getText(key, args));
     }
 	/**
@@ -85,9 +83,7 @@ public abstract class ArchiesAction extends ActionSupport implements ServletRequ
 	 * @param key
 	 * @param args
 	 */
-    public final void addActionMessage(String key, Object[] args) 
-    {
-    
+    public final void addActionMessage(String key, Object[] args) {
       this.addActionMessage(this.getText(key, Arrays.asList(args)));
     }
     
@@ -96,8 +92,7 @@ public abstract class ArchiesAction extends ActionSupport implements ServletRequ
      * @param key
      * @param args
      */
-    public final void addActionMessage(String key, List<Object> args) 
-    {
+    public final void addActionMessage(String key, List<Object> args) {
     	this.addActionMessage(this.getText(key, args));
     }
     
@@ -105,8 +100,7 @@ public abstract class ArchiesAction extends ActionSupport implements ServletRequ
      * 
      *
      */
-    public void reset()
-	{
+    public void reset() {
 		this.mode = "init";
 		this.actionException = null;
 	}
@@ -163,7 +157,6 @@ public abstract class ArchiesAction extends ActionSupport implements ServletRequ
 	public void setServletRequest(HttpServletRequest request) {
 		this.request = request;
 	}
-
 
 	/**
 	 * @param response the response to set

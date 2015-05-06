@@ -1,8 +1,5 @@
 package com.archies.web.action;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
@@ -19,9 +16,4 @@ public class HomeAction extends ArchiesAction {
 		return "logout";
 	}
 	
-	public String dummy(){
-		
-		return null;
-
-	}
 }
