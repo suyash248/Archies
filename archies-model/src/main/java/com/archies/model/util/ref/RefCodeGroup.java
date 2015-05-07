@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -43,6 +44,12 @@ public class RefCodeGroup extends AuditableEntity {
 	
 	@OneToMany(mappedBy="refCodeGroup")
 	private Set<RefCode> refCodes;
+	
+	@Transient
+	private int totalItemCount;
+
+	@Transient
+	private int activeItemCount;
 	
 	@PrePersist
 	public void prePersist(){
