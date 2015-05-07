@@ -1,5 +1,7 @@
 package com.archies.service;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,5 +18,14 @@ public class AbstractServiceImpl {
 	
 	public Session getSession() {
 		return sessionFactory.getCurrentSession();
+	}
+	
+	@SuppressWarnings("unchecked")
+	protected <T> T getFirstResult(Query query, Class<T> resultType){
+		List<T> resultList = (List<T>) query.list();
+		if(resultList.size() > 0){
+			return resultList.get(0);
+		}
+		return null;
 	}
 }

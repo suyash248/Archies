@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -11,7 +12,7 @@ import com.archies.model.util.ref.RefCode;
 import com.archies.model.util.ref.RefCodeGroup;
 import com.archies.service.AbstractServiceImpl;
 
-@Service
+@Repository
 @Transactional(timeout=1500)
 public class RefCodeServiceImpl extends AbstractServiceImpl implements RefCodeService {
 	
