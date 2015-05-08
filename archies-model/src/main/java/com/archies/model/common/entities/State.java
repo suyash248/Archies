@@ -24,10 +24,10 @@ public class State extends AuditableEntity {
 	@JoinColumn(name="COUNTRY_ID")
     private Country countryId;
 	
-	 @Column(name="STATE_CODE")
-	 private String stateCode;
+	@Column(name="STATE_CODE")
+	private String stateCode;
 	 
-	 @Column(name="STATE_NAME")
-	 private String stateName;
+	@Column(name="STATE_NAME")
+	private String stateName;
 	 
 }
