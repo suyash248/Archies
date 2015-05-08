@@ -24,13 +24,19 @@ import com.archies.model.common.entities.AuditableEntity;
 @Getter @Setter
 public class RefCode extends AuditableEntity {
 	
-	public static class RefGroup{
-		public static final String MARATIAL_STATUS = "MARATIAL_STATUS";
-		public static final String COMMUNITY = "COMMUNITY";
-		public static final String RELEGION = "RELEGION";
-		public static final String MOTHER_TOUNGUE = "MOTHER_TOUNGUE";
-		public static final String WORKING_WITH_COMPANY = "WORKING_WITH_COMPANY";
-		public static final String HEIGHT = "HEIGHT";
+	@Getter
+	public enum RefCodeGrp{
+		PROFILE_MARITAL_STATUS("PROFILE_MARITAL_STATUS"), PROFILE_EDUCATIONAL_LEVEL("PROFILE_EDUCATIONAL_LEVEL"), 
+		PROFILE_RELIGION("PROFILE_RELIGION"), PROFILE_MOTHER_TONGUE("PROFILE_MOTHER_TONGUE"),
+		PROFILE_WORK_WITH("PROFILE_WORK_WITH"), PROFILE_ANNUAL_INCOM("PROFILE_ANNUAL_INCOME"), 
+		PROFILE_HEIGHT("PROFILE_HEIGHT"), PROFILE_DIET("PROFILE_DIET");
+		
+		private String label;
+		private String code;
+		private RefCodeGrp(String label){
+			this.label = label;
+			this.code = name();
+		}
 	}
 	
 	public RefCode(){

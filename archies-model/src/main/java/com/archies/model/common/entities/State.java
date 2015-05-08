@@ -22,7 +22,7 @@ public class State extends AuditableEntity {
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="COUNTRY_ID")
-    private Country countryId;
+    private Country country;
 	
 	@Column(name="STATE_CODE")
 	private String stateCode;

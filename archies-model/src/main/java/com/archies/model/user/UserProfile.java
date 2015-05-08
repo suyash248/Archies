@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -100,5 +102,8 @@ public class UserProfile extends AuditableEntity implements Serializable {
 	
 	@Column(name="HIV_POSITIVE")
 	private Boolean hivPositive = false;
-	 
+
+	@OneToOne
+	@PrimaryKeyJoinColumn
+	private User user;
 }
