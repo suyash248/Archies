@@ -3,24 +3,35 @@
 "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>
 	<constant name="struts.handle.exception" value="false" />
+	<constant name="struts.enable.SlashesInActionNames" value="true" />
 	
-    <package name="myPackage" extends="struts-default">
+    <package name="root" extends="struts-default" namespace="/">
     	<result-types>
 			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
 		</result-types>
+    	<interceptors>
+    		<interceptor name="params" class="com.opensymphony.xwork2.interceptor.ParametersInterceptor"/>
+    	</interceptors>
     	<global-results>
 			<result name="login">/WEB-INF/bodyContent/general/visitor.jsp</result>
 			<result name="home" type="tiles">home.def</result>
 		</global-results>
         <action name="admin/*" method="{1}" class="adminAction">
             <result name="success" type="tiles">admin.def</result>
+            <param name="mode">{1}</param>
         </action>
         <action name="login/*" method="{1}" class="loginAction">
+        	<result name="input">/WEB-INF/bodyContent/general/visitor.jsp</result>
+        	<param name="mode">{1}</param>
         </action>
-         <action name="home/*" method="{1}" class="homeAction">
-         	<result name="logout">/WEB-INF/jsp/login.jsp</result>
+        <action name="home/*" method="{1}" class="homeAction">
+         	<result name="logout">/WEB-INF/bodyContent/general/visitor.jsp</result>
+         	<param name="mode">{1}</param>
+        </action>
+        <action name="registration/*" method="{1}" class="registerAction">
+        	<result name="input">/WEB-INF/bodyContent/general/visitor.jsp</result>
+        	<param name="mode">{1}</param>
         </action>
     </package>
 </struts>

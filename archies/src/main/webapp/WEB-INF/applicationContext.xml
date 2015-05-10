@@ -31,6 +31,7 @@
 	
 	<context:component-scan base-package="com.archies" />
 	<context:component-scan base-package="com.archies.web.action" />
+	<context:component-scan base-package="com.archies.web.action.register" />
 	<context:component-scan base-package="com.archies.model" />
 	<context:component-scan base-package="com.archies.service" />
 	

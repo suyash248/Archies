@@ -1,7 +1,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="/struts-tags" prefix="s"%>
 
-<s:form name="loginForm" action="j_spring_security_check" method="post"  id="loginform" class="form-horizontal" role="form" novalidate="novalidate">                                    
+<s:form name="loginForm" action="/j_spring_security_check" method="post"  id="loginform" class="form-horizontal" role="form" novalidate="novalidate">                                    
 	<div class="form-group" >
 		<div class="col-sm-12">
 			<div class="input-group">

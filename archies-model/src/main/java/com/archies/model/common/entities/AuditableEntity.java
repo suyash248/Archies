@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -12,12 +11,9 @@ import javax.persistence.TemporalType;
 import lombok.Getter;
 import lombok.Setter;
 
-import com.archies.model.listener.DefaultEntityListener;
-
 @Getter @Setter
 @SuppressWarnings("serial")
 @MappedSuperclass
-@EntityListeners({DefaultEntityListener.class})
 public abstract class AuditableEntity implements Serializable {
 	
 	@Column(name = "CREATOR_ID")

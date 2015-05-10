@@ -28,10 +28,7 @@ public class LoginSuccessHandler extends ArchiesAction implements Authentication
 	@Autowired
 	private UserService userService;
 	
-	public void onAuthenticationSuccess(HttpServletRequest request,
-			HttpServletResponse response, Authentication authentication)
-			throws IOException, ServletException {
-		
+	public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
 		this.request = request;
 		SecureUser secureUser = (SecureUser)authentication.getPrincipal();
 		String username = secureUser.getUsername();

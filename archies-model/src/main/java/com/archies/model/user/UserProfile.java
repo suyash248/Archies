@@ -67,7 +67,7 @@ public class UserProfile extends AuditableEntity implements Serializable {
 	private RefCode educationalLevel;
 	
 	@Column(name="EDUCATIONAL_FIELD")
-	private String educationalfield;
+	private String educationalField;
 	
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="WORKING_WITH")
@@ -103,7 +103,4 @@ public class UserProfile extends AuditableEntity implements Serializable {
 	@Column(name="HIV_POSITIVE")
 	private Boolean hivPositive = false;
 
-	@OneToOne
-	@PrimaryKeyJoinColumn
-	private User user;
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.springframework.stereotype.Repository;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.archies.model.util.ref.RefCode;
@@ -31,9 +30,10 @@ public class RefCodeServiceImpl extends AbstractServiceImpl implements RefCodeSe
 	@SuppressWarnings("unchecked")
 	private List<RefCode> getRefCodesByGroup(Integer refCodeGroupId, String groupCode, Boolean activeIndicator){
 		Session session = getSession();
-		String sql = "from RefCode ref where "
-				+ " (:groupCode is null or ref.group.code = :groupCode ) "
-				+ " and (:groupId is null or ref.group.id = :groupId ) "
+		String sql = "from RefCode ref "
+				+ " left join fetch ref.refCodeGroup refCodeGrp "
+				+ " where (:groupCode is null or refCodeGrp.code = :groupCode ) "
+				+ " and (:groupId is null or refCodeGrp.id = :groupId ) "
 				+ " and (:active is null or ref.active = :active)"
 				+ " order by ref.value asc ";
 		Query query = session.createQuery(sql);
@@ -45,15 +45,15 @@ public class RefCodeServiceImpl extends AbstractServiceImpl implements RefCodeSe
 	}
 	
 	public RefCode getRefCode(Integer refCodeId){
-		Query query = getSession().createQuery("from RefCode ref join fetch ref.group where ref.id = :refCodeId")
+		Query query = getSession().createQuery("from RefCode ref join fetch ref.refCodeGroup where ref.id = :refCodeId")
 				.setParameter("refCodeId", refCodeId);
 				return (RefCode) query.uniqueResult();
 	}
 	
 	public RefCode getRefCode(String groupCode, String code){
 		String sql = "from RefCode ref "
-				+ " join fetch ref.group "
-				+ " where ref.group.code = :groupCode "
+				+ " join fetch ref.refCodeGroup refCodeGrp "
+				+ " where refCodeGrp.code = :groupCode "
 				+ " and ref.code = :code "
 				+ " and ref.active = :active";
 		Query query = getSession().createQuery(sql)
@@ -65,7 +65,7 @@ public class RefCodeServiceImpl extends AbstractServiceImpl implements RefCodeSe
 	}
 	
 	public RefCode getRefCodeByCode(String code){
-		Query query = getSession().createQuery("from RefCode rf where rf.code = :code");
+		Query query = getSession().createQuery("from RefCode rf left join fetch rf.refCodeGroup where rf.code = :code");
 		query.setParameter("code", code);
 		return getFirstResult(query, RefCode.class);
 	}

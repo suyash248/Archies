@@ -18,6 +18,19 @@ import lombok.Setter;
 @Getter @Setter
 public class Authority extends AuditableEntity {
 	
+	@Getter
+	public static enum AuthorityName{
+		ROLE_USER("ROLE_USER"), ROLE_ADMIN("ROLE_ADMIN");
+		
+		private String code;
+		private String label;
+		
+		AuthorityName(String label){
+			this.label = label;
+			this.code = name();
+		}
+	}
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="AUTH_ID")

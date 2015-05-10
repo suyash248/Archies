@@ -35,9 +35,27 @@
     	<div id="defImg" class="col-sm-12">
 			<div class="col-sm-3"><img src="<s:url value='/resources/images/logo/archies_logo_txt_dark.jpg'/>"></div>
 		</div>
+		
    		<div id="weddingHands" class="col-sm-12">
 			<div class="col-sm-offset-7 col-sm-5" style="margin-top:-2%">
 		        <div>
+		        	<s:if test="hasActionErrors()">
+						<s:iterator value="actionErrors">
+							<div class="alert alert-danger">
+								<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<p><s:property escape="false" /></p>
+							</div>
+						</s:iterator><br/>
+					</s:if>
+					<!-- Informative messages -->
+					<s:if test="hasActionMessages()">
+						<s:iterator value="actionMessages">
+							<div class="alert alert-success">
+								<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<p><s:property escape="false" /></p>
+							</div>
+						</s:iterator>
+					</s:if>
 		        	<s:if test="%{#parameters.error != null}">
 			            <div id="loginalert" class="alert alert-danger">
 			            	Incorrect username or password.

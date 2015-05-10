@@ -33,17 +33,15 @@ public class UserServiceImpl extends AbstractServiceImpl implements UserService 
 		return user;
 	}
 	
-	public String registerUser(User user){
-		String message;
+	public boolean registerUser(User user){
+		user.setUserName(user.getEmail());
 		if(getUserDetails(user.getUserName())!=null){
-			message=user.getUserName()+ " already exists.";
-			return message;
+			return false;
 		}
 		user.setActive(true);
 		user.setUserPass(passwordEncoder.encode(user.getUserPass()));
 		getSession().save(user);
-		message=user.getUserName()+ " registered successfully.";
-		return message;
+		return true;
 	}
 	
 	@SuppressWarnings("unchecked")

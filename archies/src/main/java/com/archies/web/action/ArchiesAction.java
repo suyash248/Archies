@@ -16,11 +16,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.struts2.interceptor.ServletRequestAware;
 import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.archies.model.user.User;
 import com.archies.service.auth.AuthServiceImpl.SecureUser;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 
@@ -34,6 +36,9 @@ public abstract class ArchiesAction extends ActionSupport implements ServletRequ
 	protected HttpServletRequest request;
 	protected Map session;
 	protected String userName;
+	
+	@Autowired
+	protected ObjectMapper jsonMapper;
 	
 	public String execute() throws Exception {
 		return SUCCESS;
@@ -58,6 +63,14 @@ public abstract class ArchiesAction extends ActionSupport implements ServletRequ
 	 */
 	public String init(){
 		return SUCCESS;
+	}
+	
+	public void resetAllActionErrors(){
+		setActionErrors(null);
+	}
+	
+	public void resetAllActionMessages(){
+		setActionMessages(null);
 	}
 	
 	/**
